@@ -3,15 +3,14 @@ import LetterSquare from '../LetterSquare/LetterSquare.js'
 
 import './PlayfairSquare.css';
 
-function PlayfairSquare() {
+function PlayfairSquare({letterOne = undefined, letterTwo = undefined}) {
 
     const alphabet = Array.from({ length: 26 }, (_, i) => {
-            if(i !== 9) {
+        if(i !== 9) {
 
-                return String.fromCharCode(97 + i)
-            }
+            return String.fromCharCode(97 + i)
         }
-    ).filter(Boolean);
+    }).filter(Boolean);
 
     
     return (
@@ -21,7 +20,13 @@ function PlayfairSquare() {
                     <div className="row">
                         {
                             alphabet.slice(i*5,i*5+5).map((letter, index) => (
-                                <LetterSquare letter={letter} />
+                                letter === letterOne ? (
+                                    <LetterSquare letter={letter} isPressed={true}/>
+                                ): letter === letterTwo ? (
+                                    <LetterSquare letter={letter} isPressed={true}/>
+                                ):(
+                                    <LetterSquare letter={letter} isPressed={false}/>
+                                )
                             ))
                         }
                     </div>
