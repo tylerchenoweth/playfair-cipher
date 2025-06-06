@@ -56,11 +56,11 @@ function App() {
   return (
     <div className="App"  tabIndex={0} onKeyDown={handleKeyDown} onKeyUp={handleKeyUp}>
       <header className="App-header">
-        <h1 style={{backgroundColor: bgColor}}>Copper Dup3r's Playfair Cipher </h1>
-        <PlayfairSquare/>
-        <br></br><br></br><br></br><br></br><br></br><br></br>
+        <h1>Copper Dup3r's Playfair Cipher </h1>
+
+        <PlayfairSquare letterOne={displayKeys[0]} letterTwo={displayKeys[1]}/>
+
         <Keyboard letterOne={displayKeys[0]} letterTwo={displayKeys[1]}/>
-        <h1>look above</h1>
       </header>
     </div>
   );
