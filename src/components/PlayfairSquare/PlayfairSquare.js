@@ -5,12 +5,19 @@ import './PlayfairSquare.css';
 
 function PlayfairSquare({letterOne = undefined, letterTwo = undefined}) {
 
-    const alphabet = Array.from({ length: 26 }, (_, i) => {
-        if(i !== 9) {
+    const keyword = 'death';
 
-            return String.fromCharCode(97 + i)
+    const alphabetLeftovers = Array.from({ length: 26 }, (_, i) => {
+        // 9 because we dont want 'j'
+        if(i !== 9) {
+            // dont include letters from the keyword
+            if(!keyword.includes(String.fromCharCode(97+i))) {
+                return String.fromCharCode(97 + i);
+            }
         }
     }).filter(Boolean);
+
+    const playfairSquare =[...keyword.split(''),...alphabetLeftovers]
 
     
     return (
@@ -19,7 +26,7 @@ function PlayfairSquare({letterOne = undefined, letterTwo = undefined}) {
                 Array.from({length: 6 }).map((_, i) => (
                     <div className="row">
                         {
-                            alphabet.slice(i*5,i*5+5).map((letter, index) => (
+                            playfairSquare.slice(i*5,i*5+5).map((letter, index) => (
                                 letter === letterOne || letter === letterTwo ? (
                                     <LetterSquare letter={letter} isPressed={true}/>
                                 ): letter === 'i' && (letterOne ==='j' || letterTwo ==='j') ? (
