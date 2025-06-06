@@ -4,43 +4,40 @@ import LetterSquare from '../LetterSquare/LetterSquare.js';
 
 import './Keyboard.css';
 
-function Keyboard() {
+import {useRef, useEffect} from 'react';
+
+function Keyboard({letterOne = undefined, letterTwo = undefined}) {
 
 
     const qwertyAlphabet = [
-        'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p',
-        'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l',
-        'z', 'x', 'c', 'v', 'b', 'n', 'm'
+        ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+        ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+        ['z', 'x', 'c', 'v', 'b', 'n', 'm']
     ];
-      
-    // 0-10 --- 0
-    // 10-19 --- 10
-    // 19-27 --- 19
+
+    // console.log("Letter One: ", letterOne);
+    // console.log("Letter Two: ", letterTwo)
+    
     return (
         <div className="keyboard">
+
+            {Array.from({length: qwertyAlphabet.length}).map((_, i) => 
+                // <p>{offsets[i]}</p>
             
-            {/* {
-                qwertyAlphabet.map((letter, index) => (
-                    <LetterSquare letter={letter} />
-                ))
-            } */}
 
+                <div className="row">
+                    {Array.from({length: qwertyAlphabet[i].length}).map((_, k) => 
+                    
+                    qwertyAlphabet[i][k] === letterOne ? (
+                            <LetterSquare letter={qwertyAlphabet[i][k]} isPressed={true} />
+                    ) : qwertyAlphabet[i][k] === letterTwo ? (
+                        <LetterSquare letter={qwertyAlphabet[i][k]} isPressed={true} />
+                    ) : (
+                        <LetterSquare letter={qwertyAlphabet[i][k]} isPressed={false} />
+                    ))}
+                </div>
 
-            <div className="row">
-                {Array.from({length: 10}).map((_, i) => (
-                    <LetterSquare letter={qwertyAlphabet[i]} />
-                ))}
-            </div>
-            <div className="row">
-                {Array.from({length: 9}).map((_, i) => (    
-                    <LetterSquare letter={qwertyAlphabet[i+10]} /> 
-                ))}
-            </div>
-            <div className="row">
-                {Array.from({length: 7}).map((_, i) => (
-                    <LetterSquare letter={qwertyAlphabet[i+19]} />
-                ))}
-            </div>
+            )}
 
         </div>
     );
