@@ -9,49 +9,27 @@ function App() {
 
   const [bgColor, setBgColor] = useState('transparent');
 
+  // for keeping track of the pressed keys
   const pressedKeys = useRef(new Set());
+
+  // for telling the UI which keys are pressed so it can
+  // render the changes
   const [displayKeys, setDisplayKeys] = useState([]);
 
-  let letterArray = useRef([]);
+  const handleKeyDown = (event) => {
+    setBgColor('blue');
 
+    if(pressedKeys.current.size < 2) {
+      pressedKeys.current.add(event.key);
+      setDisplayKeys([...pressedKeys.current]);
+    }
+  };
 
-  // useEffect(() => {
-
-    const handleKeyDown = (event) => {
-      // console.log(`Key DOWN: ${event.key}`);
-      setBgColor('blue');
-
-
-
-      if(pressedKeys.current.size < 2) {
-        pressedKeys.current.add(event.key);
-        setDisplayKeys([...pressedKeys.current]);
-        // console.log(event.key);
-        // console.log("DOWN")
-        // console.log(`SIZE: ${pressedKeys.current.size}`);
-        // // console.log(Array.from(pressedKeys));
-        // console.log(Array.from(pressedKeys.current));  
-      }
-
-        
-    };
-
-    const handleKeyUp = (event) => {
-      // console.log(`Key UP: ${e0-vent.key}`);
-      setBgColor('transparent');
-
-      pressedKeys.current.delete(event.key);
-      setDisplayKeys([...pressedKeys.current])
-      // console.log(Array.from(pressedKeys.current));
-      // console.log("UP");
-    
-    };
-  
-  
-    // console.log(displayKeys);
-    // console.log("OUT END")
-  
-
+  const handleKeyUp = (event) => {
+    setBgColor('transparent');
+    pressedKeys.current.delete(event.key);
+    setDisplayKeys([...pressedKeys.current])
+  };
 
   return (
     <div className="App"  tabIndex={0} onKeyDown={handleKeyDown} onKeyUp={handleKeyUp}>
