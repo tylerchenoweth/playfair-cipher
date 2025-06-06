@@ -20,9 +20,9 @@ function PlayfairSquare({letterOne = undefined, letterTwo = undefined}) {
                     <div className="row">
                         {
                             alphabet.slice(i*5,i*5+5).map((letter, index) => (
-                                letter === letterOne ? (
+                                letter === letterOne || letter === letterTwo ? (
                                     <LetterSquare letter={letter} isPressed={true}/>
-                                ): letter === letterTwo ? (
+                                ): letter === 'i' && (letterOne ==='j' || letterTwo ==='j') ? (
                                     <LetterSquare letter={letter} isPressed={true}/>
                                 ):(
                                     <LetterSquare letter={letter} isPressed={false}/>
