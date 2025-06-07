@@ -20,8 +20,11 @@ function App() {
     setBgColor('blue');
 
     if(pressedKeys.current.size < 2) {
-      pressedKeys.current.add(event.key);
-      setDisplayKeys([...pressedKeys.current]);
+      if(/^[a-zA-Z]$/.test(event.key)) {
+        pressedKeys.current.add(event.key);
+        setDisplayKeys([...pressedKeys.current]);
+      }
+      
     }
   };
 
@@ -30,6 +33,8 @@ function App() {
     pressedKeys.current.delete(event.key);
     setDisplayKeys([...pressedKeys.current])
   };
+
+
 
   return (
     <div className="App"  tabIndex={0} onKeyDown={handleKeyDown} onKeyUp={handleKeyUp}>
