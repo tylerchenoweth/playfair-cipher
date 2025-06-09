@@ -26,6 +26,10 @@ function getRowCol(square, letter) {
 
 
 export default function getCipherLetters(square, letterOne, letterTwo) {
+
+    // letterOne = letterOne.toLowerCase();
+    // letterTwo = letterTwo.toLowerCase();
+
     let rowCol = getRowCol(square, letterOne);
     const row1 = rowCol[0];
     const col1 = rowCol[1];
@@ -34,8 +38,8 @@ export default function getCipherLetters(square, letterOne, letterTwo) {
     const row2 = rowCol[0];
     const col2 = rowCol[1];
 
-    console.log("===> ", square[row1]);
-    console.log("===> ", square[row2]);
+    console.log("row 1 ===> ", square[row1]);
+    console.log("row 2 ===> ", square[row2]);
     
     // return cipher letters
     if(row1 === row2) {

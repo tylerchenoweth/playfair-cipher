@@ -23,7 +23,7 @@ function Keyboard({letterOne = undefined, letterTwo = undefined}) {
                     {Array.from({length: qwertyAlphabet[i].length}).map((_, k) => 
                     
                     qwertyAlphabet[i][k] === letterOne || qwertyAlphabet[i][k] === letterTwo ? (
-                        <LetterSquare letter={qwertyAlphabet[i][k]} letterColor={"linear-gradient(135deg, red, blue)"} />
+                        <LetterSquare letter={qwertyAlphabet[i][k]} letterColor={"blue"} />
                     ):(
                         <LetterSquare letter={qwertyAlphabet[i][k]} letterColor={"transparent"} />
                     ))}

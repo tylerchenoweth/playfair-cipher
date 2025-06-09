@@ -36,7 +36,7 @@
 
   margin: 2rem 0;
 
-  background: linear-gradient(135deg, red, blue);
+  background: linear-gradient(135deg, green 0%, green 34%, blue 100%);
 }
 
 

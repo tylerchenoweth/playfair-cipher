@@ -7,7 +7,7 @@ import {useRef, useState} from 'react';
 
 function App() {
 
-  const [bgColor, setBgColor] = useState('transparent');
+  // const [bgColor, setBgColor] = useState('transparent');
 
   // for keeping track of the pressed keys
   const pressedKeys = useRef(new Set());
@@ -17,11 +17,11 @@ function App() {
   const [displayKeys, setDisplayKeys] = useState([]);
 
   const handleKeyDown = (event) => {
-    setBgColor('blue');
+    // setBgColor('blue');
 
     if(pressedKeys.current.size < 2) {
       if(/^[a-zA-Z]$/.test(event.key)) {
-        pressedKeys.current.add(event.key);
+        pressedKeys.current.add((event.key).toLowerCase());
         setDisplayKeys([...pressedKeys.current]);
       }
       
@@ -29,8 +29,8 @@ function App() {
   };
 
   const handleKeyUp = (event) => {
-    setBgColor('transparent');
-    pressedKeys.current.delete(event.key);
+    // setBgColor('transparent');
+    pressedKeys.current.delete((event.key).toLowerCase());
     setDisplayKeys([...pressedKeys.current])
   };
 
