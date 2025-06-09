@@ -3,7 +3,7 @@ import './App.css';
 import PlayfairSquare from './components/PlayfairSquare/PlayfairSquare.js';
 import Keyboard from './components/Keyboard/Keyboard.js';
 
-import {useEffect, useRef, useState} from 'react';
+import {useRef, useState} from 'react';
 
 function App() {
 
@@ -44,6 +44,11 @@ function App() {
         <PlayfairSquare letterOne={displayKeys[0]} letterTwo={displayKeys[1]}/>
 
         <Keyboard letterOne={displayKeys[0]} letterTwo={displayKeys[1]}/>
+
+
+        <div className="testSquare"></div>
+        <div className="testSquare"></div>
+        <div className="testSquare"></div>
       </header>
     </div>
   );

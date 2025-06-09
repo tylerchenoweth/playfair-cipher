@@ -68,17 +68,17 @@ function PlayfairSquare({letterOne = undefined, letterTwo = undefined}) {
                     {playfairSquare[i].map((letter, index) => (
                         
                         letter === letterOne || letter === letterTwo ? (
-                            <LetterSquare letter={letter} isPressed={true}/>
+                            <LetterSquare letter={letter} letterColor={"blue"}/>
                         ): letter === cipherLetterOne && cipherLetterOne !== undefined  ? (
-                            <LetterSquare letter={letter} isPressed={true}/>
+                            <LetterSquare letter={letter} letterColor={"green"}/>
                         ): letter === cipherLetterTwo && cipherLetterTwo !== undefined ? (
-                            <LetterSquare letter={letter} isPressed={true}/>
+                            <LetterSquare letter={letter} letterColor={"green"}/>
                         ): letter === 'i' && (letterOne ==='j' || letterTwo ==='j') ? (
-                            <LetterSquare letter={letter} isPressed={true}/>
+                            <LetterSquare letter={letter} letterColor={"green"} />
                         ): letter === 'i' && (cipherLetterOne ==='j' || cipherLetterTwo ==='j') ? (
-                            <LetterSquare letter={letter} isPressed={true}/>
+                            <LetterSquare letter={letter} letterColor={"green"}/>
                         ):(
-                            <LetterSquare letter={letter} isPressed={false}/>
+                            <LetterSquare letter={letter} letterColor={"transparent"}/>
                         )
                     ))}
                 </div>

@@ -14,7 +14,7 @@ function getRowCol(square, letter) {
         
         const c = square[r].indexOf(letter);
         
-        if(c != -1) {
+        if(c !== -1) {
             row = r;
             col = c;
         }
@@ -33,12 +33,17 @@ export default function getCipherLetters(square, letterOne, letterTwo) {
     rowCol = getRowCol(square, letterTwo);
     const row2 = rowCol[0];
     const col2 = rowCol[1];
+
+    console.log("===> ", square[row1]);
+    console.log("===> ", square[row2]);
     
     // return cipher letters
     if(row1 === row2) {
         // if the letters are in the same row
         console.log("===> ", row1);
         console.log("===> ", row2);
+        console.log("===> ", square[row1]);
+        console.log("===> ", square[row2]);
 
         return [ square[row1][(col1+1)%5], square[row2][(col2+1)%5] ]
     } else if(col1 === col2) {
@@ -57,20 +62,3 @@ export default function getCipherLetters(square, letterOne, letterTwo) {
 
 
 
-
-
-
-
-
-
-
-
-
-function getLetters(square, letterOne, letterTwo) {
-    
-    // console.log(square.indexOf(letterOne));
-    // console.log(square.indexOf(letterTwo));
-    
-    
-    
-}

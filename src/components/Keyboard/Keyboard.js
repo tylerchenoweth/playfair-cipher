@@ -4,8 +4,6 @@ import LetterSquare from '../LetterSquare/LetterSquare.js';
 
 import './Keyboard.css';
 
-import {useRef, useEffect} from 'react';
-
 function Keyboard({letterOne = undefined, letterTwo = undefined}) {
 
     const qwertyAlphabet = [
@@ -25,9 +23,9 @@ function Keyboard({letterOne = undefined, letterTwo = undefined}) {
                     {Array.from({length: qwertyAlphabet[i].length}).map((_, k) => 
                     
                     qwertyAlphabet[i][k] === letterOne || qwertyAlphabet[i][k] === letterTwo ? (
-                        <LetterSquare letter={qwertyAlphabet[i][k]} isPressed={true} />
+                        <LetterSquare letter={qwertyAlphabet[i][k]} letterColor={"linear-gradient(135deg, red, blue)"} />
                     ):(
-                        <LetterSquare letter={qwertyAlphabet[i][k]} isPressed={false} />
+                        <LetterSquare letter={qwertyAlphabet[i][k]} letterColor={"transparent"} />
                     ))}
                 </div>
             )}
