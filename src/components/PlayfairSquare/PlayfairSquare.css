@@ -1,11 +1,12 @@
 
 .square {
     margin: 2rem 0; 
+    /* width: 27rem;
+    border: 1px solid white; */
 }
 
 .row {
     display: flex;
-    /* border: 1px solid orange; */
     justify-content: center;
     width: 25rem;
 }
