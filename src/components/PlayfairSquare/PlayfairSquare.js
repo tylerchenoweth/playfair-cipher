@@ -8,6 +8,8 @@ import {useState} from 'react';
 
 function PlayfairSquare({keyword='', letterOne = undefined, letterTwo = undefined}) {
 
+    keyword = keyword.toLowerCase();
+
     const alphabetLeftovers = Array.from({ length: 26 }, (_, i) => {
         // 9 because we dont want 'j'
         if(i !== 9) {
