@@ -17,7 +17,10 @@ function LetterSquare( {letter, isPressed=false, letterColor="blue"}) {
     
 
     return (
-        <h1 className="letter-square" style={{background: bgColor}}>{letter}</h1>
+        <div className="letterSquare" style={{background: bgColor}}> 
+            {letter}
+            {/* <h1 className="letter" style={{background: bgColor}}>{letter}</h1> */}
+        </div>
     );
 }
 
