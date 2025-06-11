@@ -49,15 +49,12 @@ function App() {
         <h1>Copper Dup3r's Playfair Cipher </h1>
 
         <KeywordInput value={keyword} onChange={setKeyword}/>
+        
 
         <PlayfairSquare keyword={keyword} letterOne={displayKeys[0]} letterTwo={displayKeys[1]}/>
 
         <Keyboard letterOne={displayKeys[0]} letterTwo={displayKeys[1]}/>
 
-
-        <div className="testSquare"></div>
-        <div className="testSquare"></div>
-        <div className="testSquare"></div>
       </header>
     </div>
   );
