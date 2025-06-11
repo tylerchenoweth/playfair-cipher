@@ -54,11 +54,11 @@ function PlayfairSquare({keyword='', letterOne = undefined, letterTwo = undefine
                     {playfairSquare[i].map((letter, index) => (
                         // if a cipher and keyboard letter are the same letter
                         letter === cipherLetterOne && cipherLetterOne === letterTwo ? (
-                            <LetterSquare letter={letter} letterColor={"linear-gradient(135deg, blue 0%, green 83%, green 100%)"}/>
+                            <LetterSquare letter={letter} letterColor={"linear-gradient(135deg, blue 0%, blue 50%, green 50%)"}/>
                         ):
                         // if a cipher and keyboard letter are the same letter
                         letter === cipherLetterTwo && cipherLetterTwo === letterOne ? (
-                            <LetterSquare letter={letter} letterColor={"linear-gradient(135deg, blue 0%, green 83%, green 100%)"}/>
+                            <LetterSquare letter={letter} letterColor={"linear-gradient(135deg, blue 0%, blue 40%, green 55%, green 100%)"}/>
                         ):
                         // light up keyboard letters blue
                         letter === letterOne || letter === letterTwo ? (
