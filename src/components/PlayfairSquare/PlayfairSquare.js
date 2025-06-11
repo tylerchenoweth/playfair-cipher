@@ -4,9 +4,9 @@ import getCipherLetters from '../../utils/getCipherLetters.js'
 
 import './PlayfairSquare.css';
 
-function PlayfairSquare({letterOne = undefined, letterTwo = undefined}) {
+import {useState} from 'react';
 
-    const keyword = 'death';
+function PlayfairSquare({keyword='', letterOne = undefined, letterTwo = undefined}) {
 
     const alphabetLeftovers = Array.from({ length: 26 }, (_, i) => {
         // 9 because we dont want 'j'
