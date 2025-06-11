@@ -1,5 +1,6 @@
 import './App.css';
 
+import KeywordInput from './components/KeywordInput/KeywordInput.js';
 import PlayfairSquare from './components/PlayfairSquare/PlayfairSquare.js';
 import Keyboard from './components/Keyboard/Keyboard.js';
 
@@ -7,7 +8,8 @@ import {useRef, useState} from 'react';
 
 function App() {
 
-  // const [bgColor, setBgColor] = useState('transparent');
+  // for the keyword input
+  const [keyword, setKeyword] = useState('');
 
   // for keeping track of the pressed keys
   const pressedKeys = useRef(new Set());
@@ -17,7 +19,12 @@ function App() {
   const [displayKeys, setDisplayKeys] = useState([]);
 
   const handleKeyDown = (event) => {
-    // setBgColor('blue');
+    
+    // this will tell the square and keyboard not to light up when
+    // typing in the input field 
+    const tag = document.activeElement.tagName.toLowerCase();
+    if(tag === 'input') return;
+
 
     if(pressedKeys.current.size < 2) {
       if(/^[a-zA-Z]$/.test(event.key)) {
@@ -41,7 +48,9 @@ function App() {
       <header className="App-header">
         <h1>Copper Dup3r's Playfair Cipher </h1>
 
-        <PlayfairSquare letterOne={displayKeys[0]} letterTwo={displayKeys[1]}/>
+        <KeywordInput value={keyword} onChange={setKeyword}/>
+
+        <PlayfairSquare keyword={keyword} letterOne={displayKeys[0]} letterTwo={displayKeys[1]}/>
 
         <Keyboard letterOne={displayKeys[0]} letterTwo={displayKeys[1]}/>
 
