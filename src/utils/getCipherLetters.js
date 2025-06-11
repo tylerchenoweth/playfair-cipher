@@ -1,7 +1,3 @@
-
-
-
-
 function getRowCol(square, letter) {
     let row = undefined;
     let col = undefined;
@@ -38,16 +34,16 @@ export default function getCipherLetters(square, letterOne, letterTwo) {
     const row2 = rowCol[0];
     const col2 = rowCol[1];
 
-    console.log("row 1 ===> ", square[row1]);
-    console.log("row 2 ===> ", square[row2]);
+    // console.log("row 1 ===> ", square[row1]);
+    // console.log("row 2 ===> ", square[row2]);
     
     // return cipher letters
     if(row1 === row2) {
         // if the letters are in the same row
-        console.log("===> ", row1);
-        console.log("===> ", row2);
-        console.log("===> ", square[row1]);
-        console.log("===> ", square[row2]);
+        // console.log("===> ", row1);
+        // console.log("===> ", row2);
+        // console.log("===> ", square[row1]);
+        // console.log("===> ", square[row2]);
 
         return [ square[row1][(col1+1)%5], square[row2][(col2+1)%5] ]
     } else if(col1 === col2) {
