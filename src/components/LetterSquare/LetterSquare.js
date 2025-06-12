@@ -2,7 +2,7 @@ import './LetterSquare.css'
 
 import {useState, useEffect} from 'react';
 
-function LetterSquare( {letter, isPressed=false, letterColor="blue"}) {
+function LetterSquare( {letter, isPressed=false, squareColor="blue"}) {
 
     const [bgColor, setBgColor] = useState('transparent');
 
@@ -10,10 +10,10 @@ function LetterSquare( {letter, isPressed=false, letterColor="blue"}) {
 
     useEffect(() => {
         
-        setBgColor(letterColor);
+        setBgColor(squareColor);
             
         
-    }, [letterColor]);
+    }, [squareColor]);
     
 
     return (

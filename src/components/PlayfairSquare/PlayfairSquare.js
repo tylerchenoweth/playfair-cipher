@@ -4,7 +4,6 @@ import getCipherLetters from '../../utils/getCipherLetters.js'
 
 import './PlayfairSquare.css';
 
-import {useState} from 'react';
 
 function PlayfairSquare({keyword='', letterOne = undefined, letterTwo = undefined}) {
 
@@ -49,39 +48,38 @@ function PlayfairSquare({keyword='', letterOne = undefined, letterTwo = undefine
 
     return (
         <div className="square">
-            {Array.from({length: playfairSquare.length}).map((_,i) => (
-                <div className="row" key={i}>
-                    {playfairSquare[i].map((letter, index) => (
-                        // if a cipher and keyboard letter are the same letter
-                        letter === cipherLetterOne && cipherLetterOne === letterTwo ? (
-                            <LetterSquare letter={letter} letterColor={"linear-gradient(135deg, blue 0%, blue 50%, green 50%)"}/>
-                        ):
-                        // if a cipher and keyboard letter are the same letter
-                        letter === cipherLetterTwo && cipherLetterTwo === letterOne ? (
-                            <LetterSquare letter={letter} letterColor={"linear-gradient(135deg, blue 0%, blue 40%, green 55%, green 100%)"}/>
-                        ):
-                        // light up keyboard letters blue
-                        letter === letterOne || letter === letterTwo ? (
-                            <LetterSquare letter={letter} letterColor={"blue"}/>
-                        // light up cipher letter one green
-                        ): 
-                        letter === cipherLetterOne && cipherLetterOne !== undefined  ? (
-                            <LetterSquare letter={letter} letterColor={"green"}/>
-                        // light up cipher letter two green
-                        ): 
-                        letter === cipherLetterTwo && cipherLetterTwo !== undefined ? (
-                            <LetterSquare letter={letter} letterColor={"green"}/>
-                        // light up keyboard letter 'i' if j is pressed
-                        ): 
-                        (
-                            <LetterSquare letter={letter} letterColor={"transparent"}/>
-                        )
-                    ))}
-                </div>
-            ))}
-            
+          {Array.from({ length: playfairSquare.length }).map((_, i) => (
+            <div className="row" key={i}>
+              {playfairSquare[i]?.map((letter, index) => {
+                let color;
+      
+                if (letter === cipherLetterOne && cipherLetterOne === letterTwo) {
+                  color = "linear-gradient(135deg, red 0%, red 40%, green 55%, green 100%)";
+                } else if (letter === cipherLetterTwo && cipherLetterTwo === letterOne) {
+                  color = "linear-gradient(135deg, red 0%, red 40%, green 55%, green 100%)";
+                } else if (letter === letterOne || letter === letterTwo) {
+                  color = "red";
+                } else if (letter === cipherLetterOne) {
+                  color = "green";
+                } else if (letter === cipherLetterTwo) {
+                  color = "green";
+                } else {
+                  color = "transparent";
+                }
+      
+                return (
+                  <LetterSquare
+                    key={index}
+                    letter={letter}
+                    squareColor={color}
+                  />
+                );
+              })}
+            </div>
+          ))}
         </div>
-    );
+      );
+      
 }
 
 export default PlayfairSquare;

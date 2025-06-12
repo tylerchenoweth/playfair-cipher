@@ -3,7 +3,6 @@ import isValidKeyword from "../../utils/isValidKeyword.js"
 
 import "./KeywordInput.css"
 
-import {useState} from 'react';
 
 function KeywordInput({value, onChange}) {
 
