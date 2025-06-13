@@ -46,7 +46,7 @@ function App() {
   return (
     <div className="App"  tabIndex={0} onKeyDown={handleKeyDown} onKeyUp={handleKeyUp}>
       <header className="App-header">
-        <h1>Copper Dup3r's Playfair Cipher </h1>
+        <h1>Cooper Dup3r's Playfair Cipher </h1>
 
         <KeywordInput value={keyword} onChange={setKeyword}/>
         
