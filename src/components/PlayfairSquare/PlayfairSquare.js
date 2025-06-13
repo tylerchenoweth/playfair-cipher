@@ -48,35 +48,45 @@ function PlayfairSquare({keyword='', letterOne = undefined, letterTwo = undefine
 
     return (
         <div className="square">
-          {Array.from({ length: playfairSquare.length }).map((_, i) => (
-            <div className="row" key={i}>
-              {playfairSquare[i]?.map((letter, index) => {
-                let color;
-      
+          {Array.from({ length: playfairSquare.length }).map((_, row) => (
+            
+
+            <div className="row" key={row}>
+              {playfairSquare[row]?.map((letter, index) => {
+                let squareColor;
+                let letterColor = "white";
+
+                if(row === 0) {
+                  if(index < keyword.length) {
+                    letterColor = "#4F7CAC";
+                  }
+                }
+                
                 if (letter === cipherLetterOne && cipherLetterOne === letterTwo) {
-                  color = "linear-gradient(135deg, red 0%, red 40%, green 55%, green 100%)";
+                  squareColor = "linear-gradient(135deg, #6DCB76  0%, #6DCB76  30%, #FFA69E, #FFA69E)";
                 } else if (letter === cipherLetterTwo && cipherLetterTwo === letterOne) {
-                  color = "linear-gradient(135deg, red 0%, red 40%, green 55%, green 100%)";
+                  squareColor = "linear-gradient(135deg, #6DCB76  0%, #6DCB76  30%, #FFA69E, #FFA69E)";
                 } else if (letter === letterOne || letter === letterTwo) {
-                  color = "red";
+                  squareColor = "#6DCB76 ";
                 } else if (letter === cipherLetterOne) {
-                  color = "green";
+                  squareColor = "#FFA69E";
                 } else if (letter === cipherLetterTwo) {
-                  color = "green";
+                  squareColor = "#FFA69E";
                 } else {
-                  color = "transparent";
+                  squareColor = "transparent";
                 }
       
                 return (
                   <LetterSquare
                     key={index}
                     letter={letter}
-                    squareColor={color}
+                    squareColor={squareColor}
+                    letterColor={letterColor}
                   />
                 );
               })}
             </div>
-          ))}
+))}
         </div>
       );
       
