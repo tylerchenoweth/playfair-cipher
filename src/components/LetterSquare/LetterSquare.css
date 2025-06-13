@@ -1,5 +1,6 @@
 .letterSquare {
-    border: 3px solid #FAF9F6;
+  /* 8AEA92 */
+    border: 3px solid #6DCB76;
     width: auto;
     height: 5rem;
     
@@ -11,5 +12,14 @@
   align-items: center;
 
   font-size: 3rem;
+  font-weight: bold;
+
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  
+  filter: brightness(1.1);
+  cursor: pointer;
 }
 
+.letterSquare:active {
+  transform: scale(0.97);
+}
