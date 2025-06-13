@@ -7,15 +7,14 @@ import "./KeywordInput.css"
 function KeywordInput({value, onChange}) {
 
     const handleInput = (e) => {
-        let keyword = e.target.value;
+        let keyword = e.target.value.toLowerCase();
 
-        if(isValidKeyword(keyword) === true) onChange(e.target.value);
+        if(isValidKeyword(keyword) === true) onChange(keyword);
     };
       
     return (
         <div>
-            <input type="text" id="name" value={value} onChange={handleInput} />
-            
+            <input type="text" id="name" value={value} onChange={handleInput} />   
         </div>
     )
 
