@@ -1,10 +1,12 @@
 
 input {
-    background-color:#3c4048;
-    color: white;
+    background-color: #FFA69E ;
+    color: #4F7CAC;
     border:none;
     text-align: center;
     font-size: 2rem;
+    font-weight: bold;
 
     border-radius: 5rem;
 }
+
