@@ -14,7 +14,7 @@ function KeywordInput({value, onChange}) {
       
     return (
         <div>
-            <input type="text" id="name" value={value} onChange={handleInput} />   
+            <input type="text" placeholder="enter keyword" id="name" value={value} onChange={handleInput} />   
         </div>
     )
 
