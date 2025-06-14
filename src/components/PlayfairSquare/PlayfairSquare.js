@@ -35,11 +35,6 @@ function PlayfairSquare({keyword='', letterOne = undefined, letterTwo = undefine
     let cipherLetterTwo = undefined;
 
     if(letterOne !== undefined && letterTwo !== undefined) {
-
-        // change letters from j to i since we dont use j
-        if(letterOne === 'j') letterOne = 'i';
-        if(letterTwo === 'j') letterTwo = 'i'
-
         const cipherLetters = getCipherLetters(playfairSquare, letterOne, letterTwo);
 
         cipherLetterOne = cipherLetters[0];
@@ -63,6 +58,7 @@ function PlayfairSquare({keyword='', letterOne = undefined, letterTwo = undefine
                   }
                 }
                 
+                // for determining the color of letters in the square
                 if (letter === cipherLetterOne && cipherLetterOne === letterTwo) {
                   squareColor = `linear-gradient(135deg, ${COLORS.myGreen}  0%, ${COLORS.myGreen}  40%, ${COLORS.myOrange}, ${COLORS.myOrange})`;
                 } else if (letter === cipherLetterTwo && cipherLetterTwo === letterOne) {
@@ -73,7 +69,10 @@ function PlayfairSquare({keyword='', letterOne = undefined, letterTwo = undefine
                   squareColor = COLORS.myOrange;
                 } else if (letter === cipherLetterTwo) {
                   squareColor = COLORS.myOrange;
-                } else {
+                } else if(letter === 'i' && (letterOne === 'j' || letterTwo === 'j')){
+                  squareColor = COLORS.myGreen;
+                } 
+                else {
                   squareColor = "transparent";
                 }
       
