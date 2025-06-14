@@ -63,9 +63,9 @@ function PlayfairSquare({keyword='', letterOne = undefined, letterTwo = undefine
                 }
                 
                 if (letter === cipherLetterOne && cipherLetterOne === letterTwo) {
-                  squareColor = "linear-gradient(135deg, #6DCB76  0%, #6DCB76  30%, #FFA69E, #FFA69E)";
+                  squareColor = "linear-gradient(135deg, #6DCB76  0%, #6DCB76  40%, #FFA69E, #FFA69E)";
                 } else if (letter === cipherLetterTwo && cipherLetterTwo === letterOne) {
-                  squareColor = "linear-gradient(135deg, #6DCB76  0%, #6DCB76  30%, #FFA69E, #FFA69E)";
+                  squareColor = "linear-gradient(135deg, #6DCB76  0%, #6DCB76  40%, #FFA69E, #FFA69E)";
                 } else if (letter === letterOne || letter === letterTwo) {
                   squareColor = "#6DCB76 ";
                 } else if (letter === cipherLetterOne) {
