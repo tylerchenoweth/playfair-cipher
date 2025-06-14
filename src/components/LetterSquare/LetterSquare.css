@@ -1,6 +1,6 @@
 .letterSquare {
   /* 8AEA92 */
-    border: 3px solid #6DCB76;
+    border: 3px solid var(--color-mygreen);
     width: auto;
     height: 5rem;
     

@@ -4,6 +4,7 @@ import getCipherLetters from '../../utils/getCipherLetters.js'
 
 import './PlayfairSquare.css';
 
+import {COLORS} from '../../constants/colors';
 
 function PlayfairSquare({keyword='', letterOne = undefined, letterTwo = undefined}) {
 
@@ -58,20 +59,20 @@ function PlayfairSquare({keyword='', letterOne = undefined, letterTwo = undefine
 
                 if(row === 0) {
                   if(index < keyword.length) {
-                    letterColor = "#4F7CAC";
+                    letterColor = COLORS.myBlue;
                   }
                 }
                 
                 if (letter === cipherLetterOne && cipherLetterOne === letterTwo) {
-                  squareColor = "linear-gradient(135deg, #6DCB76  0%, #6DCB76  40%, #FFA69E, #FFA69E)";
+                  squareColor = `linear-gradient(135deg, ${COLORS.myGreen}  0%, ${COLORS.myGreen}  40%, ${COLORS.myOrange}, ${COLORS.myOrange})`;
                 } else if (letter === cipherLetterTwo && cipherLetterTwo === letterOne) {
-                  squareColor = "linear-gradient(135deg, #6DCB76  0%, #6DCB76  40%, #FFA69E, #FFA69E)";
+                  squareColor = `linear-gradient(135deg, ${COLORS.myGreen}  0%, ${COLORS.myGreen}  40%, ${COLORS.myOrange}, ${COLORS.myOrange})`;
                 } else if (letter === letterOne || letter === letterTwo) {
-                  squareColor = "#6DCB76 ";
+                  squareColor = COLORS.myGreen;
                 } else if (letter === cipherLetterOne) {
-                  squareColor = "#FFA69E";
+                  squareColor = COLORS.myOrange;
                 } else if (letter === cipherLetterTwo) {
-                  squareColor = "#FFA69E";
+                  squareColor = COLORS.myOrange;
                 } else {
                   squareColor = "transparent";
                 }

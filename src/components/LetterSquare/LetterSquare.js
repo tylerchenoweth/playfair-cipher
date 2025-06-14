@@ -1,8 +1,11 @@
 import './LetterSquare.css'
 
+// Get COLORS for js 
+import { COLORS, setCssVariables } from '../../constants/colors';
+
 import {useState, useEffect} from 'react';
 
-function LetterSquare( {letter, isPressed=false, squareColor="blue", letterColor="white"}) {
+function LetterSquare( {letter, isPressed=false, squareColor=COLORS.myBlue, letterColor="white"}) {
 
     const [bgColor, setBgColor] = useState('transparent');
     const [fontColor, setFontColor] = useState('white');
@@ -21,7 +24,6 @@ function LetterSquare( {letter, isPressed=false, squareColor="blue", letterColor
     return (
         <div className="letterSquare" style={{background: bgColor, color: letterColor}}> 
             {letter}
-            {/* <h1 className="letter" style={{background: bgColor}}>{letter}</h1> */}
         </div>
     );
 }

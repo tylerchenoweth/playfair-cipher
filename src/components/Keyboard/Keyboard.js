@@ -4,6 +4,9 @@ import LetterSquare from '../LetterSquare/LetterSquare.js';
 
 import './Keyboard.css';
 
+// Get COLORS for js 
+import { COLORS, setCssVariables } from '../../constants/colors';
+
 function Keyboard({letterOne = undefined, letterTwo = undefined}) {
 
     const qwertyAlphabet = [
@@ -23,7 +26,7 @@ function Keyboard({letterOne = undefined, letterTwo = undefined}) {
                     {Array.from({length: qwertyAlphabet[i].length}).map((_, k) => 
                     
                     qwertyAlphabet[i][k] === letterOne || qwertyAlphabet[i][k] === letterTwo ? (
-                        <LetterSquare letter={qwertyAlphabet[i][k]} squareColor={"#4F7CAC"} />
+                        <LetterSquare letter={qwertyAlphabet[i][k]} squareColor={COLORS.myblue} />
                     ):(
                         <LetterSquare letter={qwertyAlphabet[i][k]} squareColor={"transparent"} />
                     ))}

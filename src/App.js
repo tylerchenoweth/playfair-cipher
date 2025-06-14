@@ -1,12 +1,21 @@
 import './App.css';
 
+// Get COLORS for js 
+import { COLORS, setCssVariables } from './constants/colors';
+
 import KeywordInput from './components/KeywordInput/KeywordInput.js';
 import PlayfairSquare from './components/PlayfairSquare/PlayfairSquare.js';
 import Keyboard from './components/Keyboard/Keyboard.js';
 
-import {useRef, useState} from 'react';
+import {useRef, useState, useEffect} from 'react';
+
 
 function App() {
+
+  useEffect(() => {
+    // Set css variable colors
+    setCssVariables(COLORS);
+  });
 
   // for the keyword input
   const [keyword, setKeyword] = useState('');

@@ -1,12 +1,19 @@
 
 input {
-    background-color: #FFA69E ;
-    color: #4F7CAC;
+    background-color: var(--color-myorange);
+    color: var(--color-myblue);
     border:none;
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
 
     border-radius: 5rem;
+
+    opacity: 1;
+}
+
+input::placeholder {
+    color: inherit;
+    opacity: .75;
 }
 
