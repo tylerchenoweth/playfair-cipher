@@ -5,12 +5,13 @@ import { COLORS, setCssVariables } from '../../constants/colors';
 
 import {useState, useEffect} from 'react';
 
-function LetterSquare( {letter, isPressed=false, squareColor=COLORS.myBlue, letterColor="white"}) {
+function LetterSquare( {letter, isPressed=false, squareColor=COLORS.myBlue, letterColor="white", border="3px 3px 3px 3px"}) {
 
     const [bgColor, setBgColor] = useState('transparent');
     const [fontColor, setFontColor] = useState('white');
 
     // console.log("IS PRESSED", isPressed);
+    const bw = border;
 
     useEffect(() => {
         
@@ -22,7 +23,7 @@ function LetterSquare( {letter, isPressed=false, squareColor=COLORS.myBlue, lett
     
 
     return (
-        <div className="letterSquare" style={{background: bgColor, color: letterColor}}> 
+        <div className="letterSquare" style={{background: bgColor, color: letterColor, borderWidth: bw}}> 
             {letter}
         </div>
     );
