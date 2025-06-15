@@ -6,6 +6,8 @@ import './PlayfairSquare.css';
 
 import {COLORS} from '../../constants/colors';
 
+import getBorder from '../../utils/getBorder.js';
+
 function PlayfairSquare({keyword='', letterOne = undefined, letterTwo = undefined}) {
 
     keyword = keyword.toLowerCase();
@@ -52,6 +54,10 @@ function PlayfairSquare({keyword='', letterOne = undefined, letterTwo = undefine
                 let squareColor;
                 let letterColor = "white";
 
+                console.log("ROW: ", row);
+                console.log("COL: ", index);
+                console.log("")
+
                 if(row === 0) {
                   if(index < keyword.length) {
                     letterColor = COLORS.myBlue;
@@ -75,6 +81,9 @@ function PlayfairSquare({keyword='', letterOne = undefined, letterTwo = undefine
                 else {
                   squareColor = "transparent";
                 }
+
+                // get the border thickness
+                const border = getBorder(true, row, index);
       
                 return (
                   <LetterSquare
@@ -82,6 +91,7 @@ function PlayfairSquare({keyword='', letterOne = undefined, letterTwo = undefine
                     letter={letter}
                     squareColor={squareColor}
                     letterColor={letterColor}
+                    border={border}
                   />
                 );
               })}
