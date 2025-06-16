@@ -48,15 +48,10 @@ function PlayfairSquare({keyword='', letterOne = undefined, letterTwo = undefine
         <div className="square">
           {Array.from({ length: playfairSquare.length }).map((_, row) => (
             
-
             <div className="row" key={row}>
               {playfairSquare[row]?.map((letter, index) => {
                 let squareColor;
                 let letterColor = "white";
-
-                console.log("ROW: ", row);
-                console.log("COL: ", index);
-                console.log("")
 
                 if(row === 0) {
                   if(index < keyword.length) {
@@ -83,7 +78,7 @@ function PlayfairSquare({keyword='', letterOne = undefined, letterTwo = undefine
                 }
 
                 // get the border thickness
-                const border = getBorder(true, row, index);
+                const border = getBorder(false, row, index);
       
                 return (
                   <LetterSquare
@@ -96,7 +91,7 @@ function PlayfairSquare({keyword='', letterOne = undefined, letterTwo = undefine
                 );
               })}
             </div>
-))}
+          ))}
         </div>
       );
       
