@@ -7,6 +7,8 @@ import './Keyboard.css';
 // Get COLORS for js 
 import { COLORS, setCssVariables } from '../../constants/colors';
 
+import getBorder from '../../utils/getBorder.js';
+
 function Keyboard({letterOne = undefined, letterTwo = undefined}) {
 
     const qwertyAlphabet = [
@@ -21,17 +23,27 @@ function Keyboard({letterOne = undefined, letterTwo = undefined}) {
     return (
         <div className="keyboard">
 
-            {Array.from({length: qwertyAlphabet.length}).map((_, i) => 
+            {Array.from({length: qwertyAlphabet.length}).map((_, row) => (
                 <div className="row">
-                    {Array.from({length: qwertyAlphabet[i].length}).map((_, k) => 
-                    
-                    qwertyAlphabet[i][k] === letterOne || qwertyAlphabet[i][k] === letterTwo ? (
-                        <LetterSquare letter={qwertyAlphabet[i][k]} squareColor={COLORS.myblue} />
-                    ):(
-                        <LetterSquare letter={qwertyAlphabet[i][k]} squareColor={"transparent"} />
-                    ))}
+                    {qwertyAlphabet[row]?.map((letter, index) => {
+                        let squareColor = "transparent";
+                        let border;
+
+                        if(qwertyAlphabet[row][index] === letterOne || qwertyAlphabet[row][index] === letterTwo) {
+                            squareColor=COLORS.myblue;
+                        }
+
+                        return (    
+                            <LetterSquare 
+                                letter={qwertyAlphabet[row][index]} 
+                                squareColor={squareColor}
+                                border={getBorder(true, row, index)}
+                            />
+                        );
+
+                    })}
                 </div>
-            )}
+            ))}
         </div>
     );
 }
