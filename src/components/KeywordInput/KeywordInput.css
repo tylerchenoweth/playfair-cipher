@@ -29,3 +29,10 @@ input:focus {
     box-shadow: none;
 }
 
+
+@media(max-width: 868px) {
+    input {
+        width: 11rem;
+        font-size: .88rem;
+    }
+}

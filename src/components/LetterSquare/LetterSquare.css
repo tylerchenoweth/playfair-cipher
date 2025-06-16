@@ -23,3 +23,11 @@
 .letterSquare:active {
   transform: scale(0.97);
 }
+
+
+@media(max-width: 868px) {
+  .letterSquare {
+    height: 2rem;
+    font-size: 1.2rem;
+  }
+}
