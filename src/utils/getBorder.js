@@ -1,9 +1,17 @@
-export default function getBorder(isKeyboard, row, col) {
+export default function getBorder(isKeyboard, row, col, isMobile) {
 
     let border;
 
-    const inW = "2px"; 
-    const outW = "4px"; 
+    let inW;
+    let outW;
+
+    if(isMobile === false) {
+        inW = "2px"; 
+        outW = "4px"; 
+    } else {
+        inW = "1px"; 
+        outW = "2px";
+    }
 
 
     if(isKeyboard === true) {

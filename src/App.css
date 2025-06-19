@@ -16,13 +16,14 @@
 }
 
 .App-header {
-  background-color: var(--color-mybackground);;
+  background-color: var(--color-mybackground);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  /* font-size: calc(10px + 2vmin); */
+  font-size: 2rem;
   color: white;
 }
 
@@ -32,12 +33,13 @@
 
 /* Base link styles */
 .title-header {
-  display: inline-block;
+  /* display: inline-block; */
   position: relative;
   padding: 0.2em 0 ;
   color: inherit;
   text-decoration: none;
   margin: 0 0 1rem 0;
+  width: 80%;
 }
 
 /* Underline using ::after */
@@ -60,4 +62,18 @@
 .title-header:focus::after {
   opacity: 1;
   transform: scale(1);
+}
+
+
+@media(max-width: 868px), (max-height:986px) {
+  .title-header {
+    /* display: inline-block;
+    position: relative;
+    padding: 0.2em 0 ;
+    color: inherit;
+    text-decoration: none;
+    margin: 0 0 1rem 0; */
+    width: 80%;
+    font-size:1em; 
+  }
 }

@@ -30,9 +30,10 @@ input:focus {
 }
 
 
-@media(max-width: 868px) {
+@media(max-width: 868px), (max-height: 986px) {
     input {
         width: 11rem;
         font-size: .88rem;
+        border: 2px solid var(--color-myorange);
     }
 }

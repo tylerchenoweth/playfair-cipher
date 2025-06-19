@@ -8,7 +8,8 @@ import {COLORS} from '../../constants/colors';
 
 import getBorder from '../../utils/getBorder.js';
 
-function PlayfairSquare({keyword='', letterOne = undefined, letterTwo = undefined}) {
+
+function PlayfairSquare({keyword='', letterOne = undefined, letterTwo = undefined, isMobile=false}) {
 
     keyword = keyword.toLowerCase();
 
@@ -43,46 +44,45 @@ function PlayfairSquare({keyword='', letterOne = undefined, letterTwo = undefine
         cipherLetterTwo = cipherLetters[1];
     }
 
+    
+    
+
+
+
+
+    
+
 
     return (
-        <div className="square">
-          {Array.from({ length: playfairSquare.length }).map((_, row) => (
-            
+      <div className="square">
+        {Array.from({ length: playfairSquare.length }).map((_, row) => {
+          return (
             <div className="row" key={row}>
               {playfairSquare[row]?.map((letter, index) => {
-                let squareColor;
+                let squareColor = "transparent";
                 let letterColor = "white";
-
-                if(row === 0) {
-                  if(index < keyword.length) {
-                    letterColor = COLORS.myBlue;
-                  }
+    
+                if (row === 0 && index < keyword.length) {
+                  letterColor = COLORS.myBlue;
                 }
-                
-                // for determining the color of letters in the square
+    
                 if (letter === cipherLetterOne && cipherLetterOne === letterTwo) {
-                  squareColor = `linear-gradient(135deg, ${COLORS.myGreen}  0%, ${COLORS.myGreen}  40%, ${COLORS.myOrange}, ${COLORS.myOrange})`;
+                  squareColor = `linear-gradient(135deg, ${COLORS.myGreen} 0%, ${COLORS.myGreen} 40%, ${COLORS.myOrange}, ${COLORS.myOrange})`;
                 } else if (letter === cipherLetterTwo && cipherLetterTwo === letterOne) {
-                  squareColor = `linear-gradient(135deg, ${COLORS.myGreen}  0%, ${COLORS.myGreen}  40%, ${COLORS.myOrange}, ${COLORS.myOrange})`;
+                  squareColor = `linear-gradient(135deg, ${COLORS.myGreen} 0%, ${COLORS.myGreen} 40%, ${COLORS.myOrange}, ${COLORS.myOrange})`;
                 } else if (letter === letterOne || letter === letterTwo) {
                   squareColor = COLORS.myGreen;
-                } else if (letter === cipherLetterOne) {
+                } else if (letter === cipherLetterOne || letter === cipherLetterTwo) {
                   squareColor = COLORS.myOrange;
-                } else if (letter === cipherLetterTwo) {
-                  squareColor = COLORS.myOrange;
-                } else if(letter === 'i' && (letterOne === 'j' || letterTwo === 'j')){
+                } else if (letter === "i" && (letterOne === "j" || letterTwo === "j")) {
                   squareColor = COLORS.myGreen;
-                } 
-                else {
-                  squareColor = "transparent";
                 }
-
-                // get the border thickness
-                const border = getBorder(false, row, index);
-      
+    
+                const border = getBorder(false, row, index, isMobile);
+    
                 return (
                   <LetterSquare
-                    key={index}
+                    key={`${row}-${index}`} // unique key
                     letter={letter}
                     squareColor={squareColor}
                     letterColor={letterColor}
@@ -91,9 +91,11 @@ function PlayfairSquare({keyword='', letterOne = undefined, letterTwo = undefine
                 );
               })}
             </div>
-          ))}
-        </div>
-      );
+          );
+        })}
+      </div>
+    );
+    
       
 }
 

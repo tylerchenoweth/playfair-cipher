@@ -25,7 +25,7 @@
 }
 
 
-@media(max-width: 868px) {
+@media(max-width: 868px), (max-height: 986px) {
   .letterSquare {
     height: 2rem;
     font-size: 1.2rem;

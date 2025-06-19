@@ -51,6 +51,35 @@ function App() {
   };
 
 
+  let isMobile;
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  // determine if were on a mobile screen to adjust the border
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [])
+
+
+  const [screenHeight, setScreenHeight] = useState(window.innerHeight);
+
+  // determine if were on a mobile screen to adjust the border
+  useEffect(() => {
+    const handleResize = () => setScreenHeight(window.innerHeight);
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [])
+
+  if(screenWidth <= 868 || screenHeight <= 986) {
+    isMobile = true;
+  } else {
+    isMobile = false;
+  }
+
+
 
   return (
     <div className="App"  tabIndex={0} onKeyDown={handleKeyDown} onKeyUp={handleKeyUp}>
@@ -60,9 +89,9 @@ function App() {
         <KeywordInput value={keyword} onChange={setKeyword}/>
         
 
-        <PlayfairSquare keyword={keyword} letterOne={displayKeys[0]} letterTwo={displayKeys[1]}/>
+        <PlayfairSquare keyword={keyword} letterOne={displayKeys[0]} letterTwo={displayKeys[1]} isMobile={isMobile}/>
 
-        <Keyboard letterOne={displayKeys[0]} letterTwo={displayKeys[1]}/>
+        <Keyboard letterOne={displayKeys[0]} letterTwo={displayKeys[1]} isMobile={isMobile}/>
 
       </header>
     </div>
