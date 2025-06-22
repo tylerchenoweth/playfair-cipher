@@ -73,7 +73,7 @@ function App() {
     return () => window.removeEventListener('resize', handleResize);
   }, [])
 
-  if(screenWidth <= 868 || screenHeight <= 986) {
+  if(screenWidth <= 822 || screenHeight <= 826) {
     isMobile = true;
   } else {
     isMobile = false;
