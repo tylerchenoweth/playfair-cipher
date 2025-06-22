@@ -30,7 +30,7 @@ input:focus {
 }
 
 
-@media(max-width: 868px), (max-height: 986px) {
+@media(max-width: 868px), (max-height: 842px) {
     input {
         width: 11rem;
         font-size: .88rem;
